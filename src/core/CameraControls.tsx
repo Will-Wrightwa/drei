@@ -21,6 +21,7 @@ export const CameraControls = React.forwardRef<CamControls, CameraControlsProps>
     const events = useThree(({ events }) => events) as EventManager<HTMLElement>
 
     const explCamera = (camera || defaultCamera) as THREE.PerspectiveCamera | THREE.OrthographicCamera
+    console.log(camera)
     const explDomElement = domElement || (typeof events.connected !== 'boolean' ? events.connected : gl.domElement)
 
     const controls = React.useMemo(() => new CamControls(explCamera, explDomElement), [explCamera, explDomElement])
